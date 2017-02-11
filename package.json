@@ -1,0 +1,42 @@
+{
+  "name": "spin",
+  "version": "1.0.0",
+  "description": "Get audio metrics from your Discogs collection",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gakimball/spin.git"
+  },
+  "keywords": [
+    "spin"
+  ],
+  "author": "Geoff Kimball <geoff@geoffkimball.com> (http://geoffkimball.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gakimball/spin/issues"
+  },
+  "homepage": "https://github.com/gakimball/spin#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "xo": "^0.17.1"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "dependencies": {
+    "disconnect": "^1.0.2",
+    "dotenv": "^4.0.0",
+    "lodash.find": "^4.6.0",
+    "lodash.flatten": "^4.4.0",
+    "markdown-table": "^1.1.0",
+    "spotify-web-api-node": "^2.3.6"
+  },
+  "xo": {
+    "space": true
+  }
+}
