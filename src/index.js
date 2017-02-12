@@ -19,14 +19,14 @@ module.exports = class Fevr {
   constructor(opts) {
     const discogs = new Discogs({
       consumerKey: opts.discogsKey,
-      consumerSecret: opts.discogsSecret
+      consumerSecret: opts.discogsSecret,
     });
 
     this.db = discogs.database();
     this.collection = discogs.user().collection();
     this.spotify = new SpotifyWebApi({
       clientId: opts.spotifyKey,
-      clientSecret: opts.spotifySecret
+      clientSecret: opts.spotifySecret,
     });
   }
 
@@ -68,10 +68,10 @@ module.exports = class Fevr {
   getDiscogsTracks = (res) => {
     return Promise.all(res.releases.slice(0, 10).map((release, index, arr) => {
       console.log(`Fetching release ${index + 1}/${arr.length} ${release.id}`);
-      return this.db.getRelease(release.id).then(res => res.tracklist.map(track => ({
+      return this.db.getRelease(release.id).then(rel => rel.tracklist.map(track => ({
         artist: res.artists[0].name.replace(/ \([\d]+\)$/, ''),
         album: res.title,
-        title: track.title
+        title: track.title,
       })));
     }));
   }
@@ -92,7 +92,7 @@ module.exports = class Fevr {
       return this.spotify.searchTracks(`track:${track.title} artist:${track.artist}`).then(({ body }) => {
         const tracks = body.tracks.items;
         if (tracks.length > 0) {
-          return Object.assign({}, track, {id: tracks[0].id});
+          return Object.assign({}, track, { id: tracks[0].id });
         }
         return null;
       });
@@ -101,7 +101,7 @@ module.exports = class Fevr {
 
   // Using Spotify track IDs, fetch all advanced audio metadata for each track
   getAudioFeatures = (tracks) => {
-    return this.spotify.getAudioFeaturesForTracks(tracks.map(t => t.id)).then(({body}) => {
+    return this.spotify.getAudioFeaturesForTracks(tracks.map(t => t.id)).then(({ body }) => {
       return tracks.map(track =>
         Object.assign({}, track, find(body.audio_features, { id: track.id }))
       );

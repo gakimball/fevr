@@ -4,7 +4,9 @@
   "description": "Get audio metrics from your Discogs collection",
   "main": "lib/index.js",
   "scripts": {
+    "clean": "rimraf lib",
     "compile": "babel src -d lib",
+    "precompile": "npm run clean",
     "prepublish": "npm run compile",
     "test": "mocha -r babel-register"
   },
@@ -22,14 +24,15 @@
   },
   "homepage": "https://github.com/gakimball/fevr#readme",
   "devDependencies": {
-    "@gakimball/eslint-config": "^1.0.0",
+    "@gakimball/eslint-config": "^2.0.0",
     "babel-cli": "^6.22.2",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
     "eslint": "^3.15.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "rimraf": "^2.5.4"
   },
   "engines": {
     "node": ">=4"
