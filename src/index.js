@@ -33,10 +33,10 @@ module.exports = class Fevr {
   /**
    * Get the audio data for all tracks in a user's Discogs collection.
    * @param {String} user - Discogs username.
-   * @param {Integer} collection - Discogs collection ID.
+   * @param {Integer} [collection=0] - Discogs collection ID.
    * @returns {Promise.<Object[]>} List of track metadata.
    */
-  parse(user, collection) {
+  get(user, collection = 0) {
     return this.getDiscogsCollection(user, collection)
       .then(this.getDiscogsTracks)
       .then(this.authenticateSpotify)

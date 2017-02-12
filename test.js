@@ -16,7 +16,7 @@ describe('Parser', () => {
         spotifySecret: process.env.SPOTIFY_SECRET,
       });
 
-      return f.parse('gakimball', 0).then(res => {
+      return f.get('gakimball', 1052835).then(res => {
         console.log(res);
         console.log(f.format(res));
         expect(res).to.be.an('array');
