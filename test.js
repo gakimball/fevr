@@ -14,7 +14,7 @@ describe('Parser', () => {
         discogsKey: process.env.DISCOGS_KEY,
         discogsSecret: process.env.DISCOGS_SECRET,
         spotifyKey: process.env.SPOTIFY_KEY,
-        spotifySecret: process.env.SPOTIFY_SECRET
+        spotifySecret: process.env.SPOTIFY_SECRET,
       });
 
       return p.parse('gakimball', 0).then(res => {

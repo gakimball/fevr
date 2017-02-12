@@ -1,6 +1,6 @@
 {
-  "name": "spin",
-  "version": "1.0.0",
+  "name": "fevr",
+  "version": "0.1.0",
   "description": "Get audio metrics from your Discogs collection",
   "main": "lib/index.js",
   "scripts": {
@@ -10,18 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gakimball/spin.git"
+    "url": "git+https://github.com/gakimball/fevr.git"
   },
   "keywords": [
-    "spin"
+    "fevr"
   ],
   "author": "Geoff Kimball <geoff@geoffkimball.com> (http://geoffkimball.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gakimball/spin/issues"
+    "url": "https://github.com/gakimball/fevr/issues"
   },
-  "homepage": "https://github.com/gakimball/spin#readme",
+  "homepage": "https://github.com/gakimball/fevr#readme",
   "devDependencies": {
+    "@gakimball/eslint-config": "^1.0.0",
     "babel-cli": "^6.22.2",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
