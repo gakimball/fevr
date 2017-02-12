@@ -7,7 +7,7 @@ import table from 'markdown-table';
 /**
  * Track parser class.
  */
-module.exports = class Parser {
+module.exports = class Fevr {
   /**
    * Create a new parser instance.
    * @param {Object} opts - Parser options.

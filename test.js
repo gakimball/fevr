@@ -1,7 +1,6 @@
-/* global describe it */
 import dotenv from 'dotenv';
 import { expect } from 'chai';
-import Parser from './src';
+import Fevr from './src';
 
 dotenv.config();
 
@@ -10,16 +9,16 @@ describe('Parser', () => {
     it('works', function() {
       this.timeout(0);
 
-      const p = new Parser({
+      const f = new Fevr({
         discogsKey: process.env.DISCOGS_KEY,
         discogsSecret: process.env.DISCOGS_SECRET,
         spotifyKey: process.env.SPOTIFY_KEY,
         spotifySecret: process.env.SPOTIFY_SECRET,
       });
 
-      return p.parse('gakimball', 0).then(res => {
+      return f.parse('gakimball', 0).then(res => {
         console.log(res);
-        console.log(p.format(res));
+        console.log(f.format(res));
         expect(res).to.be.an('array');
       });
     });
