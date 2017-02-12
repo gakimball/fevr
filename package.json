@@ -2,10 +2,11 @@
   "name": "spin",
   "version": "1.0.0",
   "description": "Get audio metrics from your Discogs collection",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "test": "mocha"
+    "compile": "babel src -d lib",
+    "prepublish": "npm run compile",
+    "test": "mocha -r babel-register"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,13 @@
   },
   "homepage": "https://github.com/gakimball/spin#readme",
   "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.22.0",
     "chai": "^3.5.0",
-    "mocha": "^3.2.0",
-    "xo": "^0.17.1"
+    "eslint": "^3.15.0",
+    "mocha": "^3.2.0"
   },
   "engines": {
     "node": ">=4"
@@ -35,8 +40,5 @@
     "lodash.flatten": "^4.4.0",
     "markdown-table": "^1.1.0",
     "spotify-web-api-node": "^2.3.6"
-  },
-  "xo": {
-    "space": true
   }
 }
