@@ -2,12 +2,13 @@ import { Client as Discogs } from 'disconnect';
 import find from 'lodash.find';
 import flatten from 'lodash.flatten';
 import SpotifyWebApi from 'spotify-web-api-node';
-import table from 'markdown-table';
+
+export { format } from './format';
 
 /**
  * Track parser class.
  */
-module.exports = class Fevr {
+export default class Fevr {
   /**
    * Create a new parser instance.
    * @param {Object} opts - Parser options.
@@ -43,20 +44,6 @@ module.exports = class Fevr {
       .then(this.doSpotifySearches)
       .then(this.getAudioFeatures)
       .catch(err => console.log(err));
-  }
-
-  /**
-   * Format a list of tracks into a table displaying track title, artist, album, and BPM.
-   * @param {Object[]} tracks - List of tracks.
-   * @returns {String} Formatted table.
-   * @todo Add sorting options.
-   */
-  format(tracks) {
-    return table(
-      [['Artist', 'Album', 'Track', 'BPM']].concat(tracks.map(track =>
-        [track.artist, track.album, track.title, track.tempo]
-      ))
-    );
   }
 
   // Get a Discogs collection for a specific user
@@ -107,4 +94,4 @@ module.exports = class Fevr {
       );
     });
   }
-};
+}

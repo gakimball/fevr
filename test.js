@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { expect } from 'chai';
-import Fevr from './src';
+import Fevr, { format } from './src';
 
 dotenv.config();
 
@@ -16,9 +16,9 @@ describe('Parser', () => {
         spotifySecret: process.env.SPOTIFY_SECRET,
       });
 
-      return f.get('gakimball', 1052835).then(res => {
+      return f.get('gakimball', 0).then(res => {
         console.log(res);
-        console.log(f.format(res));
+        console.log(format(res));
         expect(res).to.be.an('array');
       });
     });
